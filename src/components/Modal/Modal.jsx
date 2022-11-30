@@ -8,6 +8,7 @@ export const Modal = ({ onClose, children }) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
+    // eslint-disable-next-line
   }, []);
 
   const handleKeyDown = e => {

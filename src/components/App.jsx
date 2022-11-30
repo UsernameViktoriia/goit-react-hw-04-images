@@ -29,7 +29,7 @@ export const App = () => {
     }
     setStatus('pending');
     setError(null);
-    const res = axios
+    axios
       .get(
         `https://pixabay.com/api/?key=31020563-d44473fd087eb3f9b37189b03&q=${images}&image_type=photo&orientation=horizontal&per_page=12&page=${page}`
       )
