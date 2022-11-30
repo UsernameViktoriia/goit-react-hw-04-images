@@ -2,13 +2,12 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Overlay, ModalWindow } from './Modal.styled';
 
-export const Modal = ({ onClose }) => {
+export const Modal = ({ onClose, children }) => {
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
-  }, []);
-
-  useEffect(() => {
-    window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   const handleKeyDown = e => {
@@ -24,7 +23,7 @@ export const Modal = ({ onClose }) => {
 
   return (
     <Overlay onClick={handleBackdropClick}>
-      <ModalWindow>{this.props.children}</ModalWindow>
+      <ModalWindow>{children}</ModalWindow>
     </Overlay>
   );
 };
